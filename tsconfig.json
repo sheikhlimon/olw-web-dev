@@ -1,0 +1,3 @@
+{
+  "extends": "@olw-web-dev/config/tsconfig.base.json"
+}
