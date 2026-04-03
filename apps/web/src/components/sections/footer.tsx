@@ -25,10 +25,10 @@ const FOOTER_LINKS = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 pt-16">
+    <footer className="bg-white pt-16 border-t border-[#D6D6D6]">
       <Container>
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="flex flex-col gap-4">
+        <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
+          <div className="flex flex-col gap-4 max-w-xs">
             <Image src="/images/logo.png" alt="Logo" width={100} height={32} />
             <p className="text-sm text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet
@@ -50,48 +50,50 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-3">Company</h4>
-            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-              {FOOTER_LINKS.company.map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-foreground">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="flex justify-around">
+            <div>
+              <h4 className="font-semibold mb-3">Company</h4>
+              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
+                {FOOTER_LINKS.company.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="hover:text-foreground">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="font-semibold mb-3">Help</h4>
-            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-              {FOOTER_LINKS.help.map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-foreground">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h4 className="font-semibold mb-3">Help</h4>
+              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
+                {FOOTER_LINKS.help.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="hover:text-foreground">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="font-semibold mb-3">Resources</h4>
-            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-              {FOOTER_LINKS.resources.map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-foreground">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h4 className="font-semibold mb-3">Resources</h4>
+              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
+                {FOOTER_LINKS.resources.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="hover:text-foreground">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </Container>
 
-      <div className="mt-12 bg-primary text-white text-center py-4 text-sm">
+      <div className="mt-12 bg-[#230B41] text-white text-center py-4 text-sm">
         © Copyright 2024, All Rights Reserved by OneLittleWeb
       </div>
     </footer>
