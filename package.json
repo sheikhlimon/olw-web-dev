@@ -37,11 +37,12 @@
     "class-variance-authority": "^0.7.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
+    "prettier": "^3.8.1",
     "typescript": "^5",
     "web": "workspace:*"
   },
   "lint-staged": {
-    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": ""
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "prettier --write"
   },
   "packageManager": "bun@1.3.11"
 }
