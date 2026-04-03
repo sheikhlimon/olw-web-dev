@@ -1,29 +1,36 @@
 import Container from "@/components/ui/container";
+import ServiceCard from "@/components/ui/ServiceCard";
 
 const SERVICES = [
   {
     title: "Service 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
   {
     title: "Service 2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
   {
     title: "Service 3",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
   {
     title: "Service 4",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
   {
     title: "Service 5",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
   {
     title: "Service 6",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    icon: null,
   },
 ] as const;
 
@@ -31,7 +38,6 @@ export default function Services() {
   return (
     <section className="py-16">
       <Container>
-        {/* Header */}
         <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
           <h2 className="text-3xl font-bold">
             Our <span className="text-primary">Service</span>
@@ -41,13 +47,9 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {SERVICES.map(({ title, description }) => (
-            <div key={title} className="p-6 rounded-lg border border-border">
-              <h3 className="font-semibold text-lg mb-2">{title}</h3>
-              <p className="text-muted-foreground text-sm">{description}</p>
-            </div>
+          {SERVICES.map((service) => (
+            <ServiceCard key={service.title} {...service} />
           ))}
         </div>
       </Container>
