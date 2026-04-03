@@ -16,17 +16,13 @@ export default function Navbar() {
     <header className="h-16 flex items-center justify-between px-8 sticky top-0 bg-white z-50">
       {/* Logo */}
       <Link href="/">
-        <Image src="/images/logo.png" alt="Logo" width={120} height={40} />
+        <Image src="/images/logo.png" alt="Logo" width={100} height={32} />
       </Link>
 
       {/* Links */}
       <nav className="flex gap-6">
         {NAV_LINKS.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            className={label === "Home" ? "text-primary" : ""}
-          >
+          <Link key={label} href={href} className={label === "Home" ? "text-primary" : ""}>
             {label}
           </Link>
         ))}
