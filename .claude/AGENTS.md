@@ -47,12 +47,9 @@ import { cn } from "@olw-web-dev/ui/lib/utils"
 
 ## Working Rules
 
-1. **Explain WHAT and WHY before changing** — Describe the change and its rationale
-2. **One file at a time** — Focused, reviewable changes
-3. **Comments explain WHY not WHAT** — Code should be self-documenting
-4. **Design reference before UI changes** — Always check DESIGN.md
-5. **No speculative code** — Only what the design requires
-6. **No backend code** — This is a frontend-only task
+1. **One file at a time** — Focused, reviewable changes
+2. **No speculative code** — Only what the design requires
+3. **No backend code** — This is a frontend-only task
 
 ## File Organization
 
