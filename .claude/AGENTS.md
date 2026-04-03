@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-OneLittleWeb hiring task - convert a Figma design into a fully coded, responsive Next.js page. Frontend-only. Deadline: Sunday, 5 April 2026.
+OneLittleWeb hiring task — convert a Figma design into a fully coded, responsive Next.js page. Frontend-only. Deadline: Sunday, 5 April 2026.
 
 ## Technical Stack
 
@@ -12,7 +12,7 @@ OneLittleWeb hiring task - convert a Figma design into a fully coded, responsive
 | UI Library | React | 19.x |
 | Language | TypeScript | 5.x |
 | Styling | Tailwind CSS | 4.x |
-| Components | shadcn/ui (base-lyra) | - |
+| Font | DM Sans | via next/font |
 | Icons | lucide-react | - |
 | Runtime | Bun | 1.3.11 |
 | Hooks | Husky + lint-staged | - |
@@ -21,117 +21,81 @@ OneLittleWeb hiring task - convert a Figma design into a fully coded, responsive
 ## Code Conventions
 
 ### React Best Practices
-- Use functional components with TypeScript
+- Functional components with TypeScript
 - Server Components by default (Next.js App Router)
-- Add `"use client"` only when needed (event handlers, hooks, browser APIs)
-- Props defined as typed interfaces, not inline types
-- Use `@/` alias for app-local imports (`apps/web/src/`)
-- Use `@olw-web-dev/ui/` for shared UI components
-
-### Performance Rules
-- Minimize client-side JavaScript
-- Use Next.js Image component for all images
-- Prefer CSS transitions over JS animations
-- Lazy load below-fold content where appropriate
-
-### Styling Rules
-- Tailwind utility classes only - no custom CSS unless necessary
-- Follow shadcn/ui patterns for component variants
-- Use CSS variables from globals.css for theming
-- Mobile-first responsive design (sm → md → lg → xl)
+- `"use client"` only when needed (event handlers, hooks, browser APIs)
+- Props as typed interfaces
 
 ### Import Aliases
 ```typescript
-// Shared UI components
-import { Button } from "@olw-web-dev/ui/components/button"
+// UI primitives
+import { Button } from "@/components/ui/button"
+import Container from "@/components/ui/container"
 
-// Shared utilities
+// Sections
+import Navbar from "@/components/sections/navbar"
+
+// Utilities (from shared package)
 import { cn } from "@olw-web-dev/ui/lib/utils"
-
-// App-local components
-import { Header } from "@/components/header"
-
-// App-local
-import { something } from "@/lib/something"
 ```
+
+### Styling Rules
+- Tailwind utility classes only — no custom CSS unless necessary
+- Mobile-first responsive design (sm → md → lg → xl)
+- Custom UI components in `components/ui/` with CVA variants
+- Use `cn()` for conditional class merging
 
 ## Working Rules
 
-1. **Explain WHAT and WHY before changing** - Describe the change and its rationale
-2. **One file at a time** - Focused, reviewable changes
-3. **Comments explain WHY not WHAT** - Code should be self-documenting
-4. **Design reference before UI changes** - Always check DESIGN.md
-5. **No speculative code** - Only what the design requires
-6. **No backend code** - This is a frontend-only task
+1. **Explain WHAT and WHY before changing** — Describe the change and its rationale
+2. **One file at a time** — Focused, reviewable changes
+3. **Comments explain WHY not WHAT** — Code should be self-documenting
+4. **Design reference before UI changes** — Always check DESIGN.md
+5. **No speculative code** — Only what the design requires
+6. **No backend code** — This is a frontend-only task
 
 ## File Organization
 
 ```
-olw-web-dev/
-├── .claude/                    # Project documentation
-│   ├── MEMORY.md               # Documentation index
-│   ├── AGENTS.md               # This file
-│   ├── PLAN.md                 # Phases and progress
-│   └── DESIGN.md               # Figma design specs
-├── .husky/                     # Git hooks
-│   └── pre-commit              # Runs lint-staged
-├── apps/
-│   └── web/                    # Next.js application
-│       ├── src/
-│       │   ├── app/            # App Router pages
-│       │   │   ├── layout.tsx  # Root layout
-│       │   │   ├── page.tsx    # Home page
-│       │   │   └── favicon.ico
-│       │   ├── components/     # App-specific components
-│       │   │   ├── header.tsx
-│       │   │   ├── loader.tsx
-│       │   │   ├── mode-toggle.tsx
-│       │   │   ├── providers.tsx
-│       │   │   └── theme-provider.tsx
-│       │   └── index.css       # App styles
-│       ├── components.json     # shadcn config (app-level)
-│       ├── next.config.ts
-│       └── package.json
-├── packages/
-│   ├── ui/                     # Shared shadcn/ui components
-│   │   ├── src/
-│   │   │   ├── components/     # Button, Card, Input, etc.
-│   │   │   ├── hooks/
-│   │   │   ├── lib/utils.ts
-│   │   │   └── styles/globals.css
-│   │   └── components.json
-│   ├── config/                 # Shared TypeScript config
-│   │   └── tsconfig.base.json
-│   └── env/                    # Shared env validation
-│       └── src/
-├── CLAUDE.md                   # Auto-loaded session config
-├── package.json                # Root workspace config
-└── bun.lock
+apps/web/src/
+├── app/
+│   ├── layout.tsx              # Root layout (DM Sans font, metadata)
+│   └── page.tsx                # Home page (imports all sections)
+├── components/
+│   ├── sections/               # Page sections
+│   │   ├── navbar.tsx
+│   │   ├── hero.tsx
+│   │   ├── company-logos.tsx
+│   │   ├── services.tsx
+│   │   ├── pricing.tsx
+│   │   ├── tools.tsx
+│   │   ├── getting-started.tsx
+│   │   ├── why-choose-us.tsx
+│   │   ├── reviews.tsx
+│   │   ├── faq.tsx
+│   │   ├── contact.tsx
+│   │   └── footer.tsx
+│   └── ui/                     # Reusable primitives
+│       ├── button.tsx          # CVA variants (primary, outline, ghost)
+│       └── container.tsx       # max-w-7xl + px-8 wrapper
+└── index.css                   # Imports globals from packages/ui
 ```
 
-## Dependencies
+```
+packages/ui/src/
+├── styles/globals.css          # Tailwind config, CSS variables, theme
+└── lib/utils.ts                # cn() utility
+```
 
-### Core
-- `next` - Full-stack React framework
-- `react` / `react-dom` - UI library
-- `tailwindcss` - Utility-first CSS (v4)
-- `@tailwindcss/postcss` - PostCSS integration
+## Dependencies We Actually Use
 
-### UI
-- `@base-ui/react` - Unstyled UI primitives (shadcn base)
-- `shadcn` - Component generator CLI
-- `class-variance-authority` - Component variant system
-- `clsx` + `tailwind-merge` - Class merging (`cn` utility)
-- `tw-animate-css` - Tailwind animation utilities
-- `lucide-react` - Icon library
-- `sonner` - Toast notifications
-- `next-themes` - Theme switching (dark/light)
-
-### Dev
-- `husky` - Git hooks
-- `lint-staged` - Pre-commit linting
-- `typescript` - Type checking
-- `babel-plugin-react-compiler` - React compiler optimization
+- `next` — Full-stack React framework
+- `react` / `react-dom` — UI library
+- `tailwindcss` + `@tailwindcss/postcss` — Styling
+- `class-variance-authority` — Button/component variants
+- `clsx` + `tailwind-merge` — `cn()` utility
+- `lucide-react` — Icons
+- `husky` + `lint-staged` — Git hooks
 
 ## Commit Guidelines
 
@@ -139,9 +103,7 @@ Format: `<type>(<scope>): <description>`
 
 ### Types
 - `feat`: New feature or section
-- `fix`: Bug fix
 - `style`: Visual changes (spacing, colors, etc.)
-- `refactor`: Code restructuring without behavior change
 - `chore`: Build, config, tooling changes
 - `docs`: Documentation updates
 

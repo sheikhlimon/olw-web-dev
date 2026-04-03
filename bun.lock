@@ -11,9 +11,11 @@
       },
       "devDependencies": {
         "@olw-web-dev/config": "workspace:*",
+        "class-variance-authority": "^0.7.1",
         "husky": "^9.1.7",
         "lint-staged": "^16.1.2",
         "typescript": "^5",
+        "web": "^0.0.2",
       },
     },
     "apps/web": {

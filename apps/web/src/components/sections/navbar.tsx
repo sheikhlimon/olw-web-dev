@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -12,15 +13,10 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   return (
-    <header className="h-[89px] flex items-center justify-between px-8">
+    <header className="h-16 flex items-center justify-between px-8 sticky top-0 bg-white z-50">
       {/* Logo */}
       <Link href="/">
-        <Image
-          src="/images/logo.png"
-          alt="Logo"
-          width={120}
-          height={40}
-        />
+        <Image src="/images/logo.png" alt="Logo" width={120} height={40} />
       </Link>
 
       {/* Links */}
@@ -29,7 +25,7 @@ export default function Navbar() {
           <Link
             key={label}
             href={href}
-            className={label === "Home" ? "text-pink-500" : ""}
+            className={label === "Home" ? "text-primary" : ""}
           >
             {label}
           </Link>
@@ -37,12 +33,9 @@ export default function Navbar() {
       </nav>
 
       {/* Button */}
-      <Link
-        href="#contact"
-        className="bg-pink-500 text-white px-4 py-2 rounded-md"
-      >
+      <Button href="#contact" size="sm">
         Schedule A Meeting →
-      </Link>
+      </Button>
     </header>
   );
 }
