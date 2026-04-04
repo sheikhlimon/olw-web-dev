@@ -8,7 +8,7 @@ export default function ServiceCard({ title, desc, icon }: any) {
       </div>
       <h3 className="font-semibold text-lg whitespace-pre-line">{title}</h3>
       <p className="text-gray-600 text-sm">{desc}</p>
-      <button className="border border-primary rounded-full px-4 py-2 text-primary text-sm mt-2">
+      <button className="border border-primary rounded-full px-4 py-2 text-primary text-sm mt-2 cursor-pointer">
         Read More
       </button>
     </div>
