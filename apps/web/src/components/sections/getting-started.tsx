@@ -6,17 +6,41 @@ const STEPS = [
   {
     step: 1,
     title: "Add requirements & sign up today",
-    icon: <Image src="/images/getting-started/1.png" alt="Step 1" width={80} height={80} />,
+    icon: (
+      <Image
+        src="/images/getting-started/1.png"
+        alt="Step 1"
+        width={80}
+        height={80}
+        className="w-auto h-auto"
+      />
+    ),
   },
   {
     step: 2,
     title: "Connect with your CSM & onboarding team",
-    icon: <Image src="/images/getting-started/2.png" alt="Step 2" width={80} height={80} />,
+    icon: (
+      <Image
+        src="/images/getting-started/2.png"
+        alt="Step 2"
+        width={80}
+        height={80}
+        className="w-auto h-auto"
+      />
+    ),
   },
   {
     step: 3,
     title: "Meet your STR Assistant next week",
-    icon: <Image src="/images/getting-started/3.png" alt="Step 3" width={80} height={80} />,
+    icon: (
+      <Image
+        src="/images/getting-started/3.png"
+        alt="Step 3"
+        width={80}
+        height={80}
+        className="w-auto h-auto"
+      />
+    ),
   },
 ] as const;
 

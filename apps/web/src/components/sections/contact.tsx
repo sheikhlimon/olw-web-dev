@@ -1,4 +1,5 @@
 import Container from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Contact() {
@@ -7,27 +8,33 @@ export default function Contact() {
       <Container>
         <div className="max-w-4xl mx-auto bg-white rounded-xl p-8 flex flex-col items-center text-center gap-4 shadow-sm">
           <div className="flex -space-x-3">
-            <Image
-              src="/images/reviews/1.jpg"
-              alt="User"
-              width={40}
-              height={40}
-              className="rounded-full border"
-            />
-            <Image
-              src="/images/reviews/2.jpg"
-              alt="User"
-              width={40}
-              height={40}
-              className="rounded-full border"
-            />
-            <Image
-              src="/images/reviews/3.jpg"
-              alt="User"
-              width={40}
-              height={40}
-              className="rounded-full border"
-            />
+            <div className="w-10 h-10">
+              <Image
+                src="/images/reviews/1.jpg"
+                alt="User"
+                width={40}
+                height={40}
+                className="w-full h-auto rounded-full border"
+              />
+            </div>
+            <div className="w-10 h-10">
+              <Image
+                src="/images/reviews/2.jpg"
+                alt="User"
+                width={40}
+                height={40}
+                className="w-full h-auto rounded-full border"
+              />
+            </div>
+            <div className="w-10 h-10">
+              <Image
+                src="/images/reviews/3.jpg"
+                alt="User"
+                width={40}
+                height={40}
+                className="w-full h-auto rounded-full border"
+              />
+            </div>
           </div>
 
           <h3 className="text-lg font-semibold">Still have Questions?</h3>
@@ -36,7 +43,7 @@ export default function Contact() {
             Can't find the answer you're looking for? Please chat to our friendly team.
           </p>
 
-          <button className="bg-primary text-white px-6 py-2 rounded-lg">Get in touch</button>
+          <Button>Get in touch</Button>
         </div>
       </Container>
     </section>

@@ -29,7 +29,15 @@ export default function Footer() {
       <Container>
         <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
           <div className="flex flex-col gap-4 max-w-xs">
-            <Image src="/images/logo.png" alt="Logo" width={100} height={32} />
+            <div className="w-20">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={80}
+                height={26}
+                className="w-full h-auto"
+              />
+            </div>
             <p className="text-sm text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum aliquet
               accumsan porta lectus.

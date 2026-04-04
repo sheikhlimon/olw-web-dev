@@ -21,9 +21,9 @@ export default function LogoStrip() {
       </Container>
       <div className="bg-gray-50 py-6">
         <Container>
-          <div className="flex flex-wrap justify-center items-center gap-16">
+          <div className="flex flex-wrap justify-center items-center gap-8">
             {LOGOS.map(({ src, alt }) => (
-              <Image key={src} src={src} alt={alt} width={100} height={32} />
+              <Image key={src} src={src} alt={alt} width={0} height={0} className="h-8 w-auto" />
             ))}
           </div>
         </Container>
