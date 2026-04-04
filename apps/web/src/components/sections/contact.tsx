@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="py-16 bg-gray-100">
+    <section id="contact" className="py-16 bg-gray-100">
       <Container>
         <div className="max-w-4xl mx-auto bg-white rounded-xl p-8 flex flex-col items-center text-center gap-4 shadow-sm">
           <div className="flex -space-x-3">

@@ -41,11 +41,11 @@ export default function Pricing() {
   };
 
   return (
-    <section className="pt-5 pb-8 md:pb-10">
+    <section id="pricing" className="pt-5 pb-8 md:pb-10">
       <Container>
         <div className="text-center flex flex-col gap-4 max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold">
-            Airbnb Assistant <span className="text-red-500">pricing</span>
+            Airbnb Assistant <span className="text-primary">pricing</span>
           </h2>
           <p className="text-gray-600">Choose a plan that's right for you</p>
         </div>
@@ -56,7 +56,7 @@ export default function Pricing() {
           </span>
           <button
             onClick={() => setIsYearly(!isYearly)}
-            className={`w-10 h-5 rounded-full p-0.5 transition-colors ${
+            className={`w-10 h-5 rounded-full p-0.5 transition-colors cursor-pointer ${
               isYearly ? "bg-primary" : "bg-gray-300"
             }`}
           >

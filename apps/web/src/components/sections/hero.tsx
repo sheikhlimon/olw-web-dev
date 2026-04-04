@@ -61,6 +61,9 @@ export default function Hero() {
         <Button href="#contact" className="mt-4">
           Schedule A Meeting →
         </Button>
+        <a href="#pricing" className="font-medium text-sm underline mt-2">
+          See Pricing
+        </a>
       </div>
     </section>
   );

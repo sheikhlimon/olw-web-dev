@@ -36,7 +36,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section className="pt-5 pb-8 md:pb-10">
+    <section id="services" className="pt-5 pb-8 md:pb-10">
       <Container>
         <div className="text-center max-w-2xl mx-auto flex flex-col gap-4">
           <h2 className="text-3xl font-bold">

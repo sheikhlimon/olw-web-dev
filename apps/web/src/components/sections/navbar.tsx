@@ -28,7 +28,11 @@ export default function Navbar() {
 
         <nav className="flex gap-6">
           {NAV_LINKS.map(({ label, href }) => (
-            <Link key={label} href={href} className={label === "Home" ? "text-primary" : ""}>
+            <Link
+              key={label}
+              href={href}
+              className="hover:text-primary hover:underline hover:[text-shadow:0_0_0.5px_currentColor]"
+            >
               {label}
             </Link>
           ))}
