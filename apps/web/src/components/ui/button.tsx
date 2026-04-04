@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@olw-web-dev/ui/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center font-medium transition-colors",
+  "inline-flex items-center justify-center font-medium transition-colors w-fit",
   {
     variants: {
       variant: {
@@ -39,11 +39,7 @@ export function Button({ children, className, variant, size, href }: ButtonProps
     );
   }
 
-  return (
-    <button className={cn(buttonVariants({ variant, size, className }))}>
-      {children}
-    </button>
-  );
+  return <button className={cn(buttonVariants({ variant, size, className }))}>{children}</button>;
 }
 
 export { buttonVariants };

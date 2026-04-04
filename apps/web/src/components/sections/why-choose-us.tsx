@@ -1,4 +1,5 @@
 import Container from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 const REASONS = [
@@ -29,9 +30,7 @@ export default function WhyChooseUs() {
               ))}
             </ul>
 
-            <button className="bg-primary text-white px-6 py-2 rounded-md w-fit text-sm">
-              Schedule A Meeting →
-            </button>
+            <Button>Schedule A Meeting →</Button>
           </div>
 
           <div className="flex justify-center">
