@@ -11,7 +11,7 @@ interface TestimonialCardProps {
 export default function TestimonialCard({ name, image, text, highlight }: TestimonialCardProps) {
   return (
     <div
-      className={`rounded-xl p-6 flex items-start gap-4 transition-all duration-500 ease-out ${
+      className={`rounded-2xl p-6 flex items-start gap-4 transition-all duration-500 ease-out ${
         highlight ? "bg-white shadow-[0px_4px_77.4px_0px_#88888869]" : "bg-[#f5f5f5]"
       }`}
     >

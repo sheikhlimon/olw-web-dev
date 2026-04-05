@@ -32,34 +32,25 @@ const TESTIMONIALS = [
   },
 ];
 
-const CARD_WIDTH = 380;
-const GAP = 24;
-
 export default function Reviews() {
   const [active, setActive] = useState(2);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const isPaused = useRef(false);
+  const paused = useRef(false);
 
   const next = useCallback(() => setActive((a) => (a === TESTIMONIALS.length - 1 ? 0 : a + 1)), []);
 
-  const startTimer = useCallback(() => {
-    timerRef.current = setInterval(() => {
-      if (!isPaused.current) next();
-    }, 5000);
-  }, [next]);
-
   useEffect(() => {
-    startTimer();
+    timerRef.current = setInterval(() => {
+      if (!paused.current) next();
+    }, 5000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [startTimer]);
-
-  const offset = -(active * (CARD_WIDTH + GAP));
+  }, [next]);
 
   return (
-    <Container className="flex flex-col gap-12">
-      <div className="text-center max-w-xl mx-auto flex flex-col gap-4">
+    <Container>
+      <div className="text-center max-w-xl mx-auto flex flex-col gap-4 mb-12">
         <h2 className="text-3xl font-bold">
           Check Our Clients <span className="text-primary">Review</span>
         </h2>
@@ -69,30 +60,30 @@ export default function Reviews() {
       </div>
 
       <div
-        className="overflow-visible"
-        onMouseEnter={() => (isPaused.current = true)}
-        onMouseLeave={() => (isPaused.current = false)}
+        className="flex items-center justify-center gap-6"
+        onMouseEnter={() => (paused.current = true)}
+        onMouseLeave={() => (paused.current = false)}
       >
-        <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{
-            gap: `${GAP}px`,
-            transform: `translateX(calc(50% - ${CARD_WIDTH / 2}px + ${offset}px))`,
-          }}
-        >
-          {TESTIMONIALS.map((item, i) => (
+        {TESTIMONIALS.map((item, i) => {
+          const isCenter = i === active;
+          const isVisible = Math.abs(i - active) <= 1;
+
+          if (!isVisible) return null;
+
+          return (
             <div
               key={i}
-              className={`flex-shrink-0 transition-all duration-500 ease-out cursor-pointer ${
-                i === active ? "scale-100 opacity-100 z-10" : "scale-90 opacity-80"
-              }`}
-              style={{ width: `${CARD_WIDTH}px` }}
+              className="flex-shrink-0 w-full max-w-[420px] transition-all duration-500 ease-out cursor-pointer"
+              style={{
+                opacity: isCenter ? 1 : 0.6,
+                transform: `scale(${isCenter ? 1 : 0.9})`,
+              }}
               onClick={() => setActive(i)}
             >
-              <TestimonialCard {...item} highlight={i === active} />
+              <TestimonialCard {...item} highlight={isCenter} />
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </Container>
   );
