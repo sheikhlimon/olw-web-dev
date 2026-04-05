@@ -30,7 +30,7 @@ export default function Tools() {
       </Container>
 
       <div className="bg-gray-50 mt-12 md:mt-20 lg:mt-24 py-8 md:py-10 pb-16 md:pb-20">
-        <Container>
+        <Container className="max-w-4xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 place-items-center">
             {TOOLS.map(({ logo }, i) => (
               <div key={i} className={`${i >= 6 ? "hidden md:block" : ""}`}>
