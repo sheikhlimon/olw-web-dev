@@ -27,28 +27,28 @@ export default function Hero() {
           alt=""
           width={80}
           height={80}
-          className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"
+          className="hidden md:block absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2"
         />
         <Image
           src="/images/hero-section/2.png"
           alt=""
           width={80}
           height={80}
-          className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2"
+          className="hidden md:block absolute top-0 right-0 translate-x-1/2 -translate-y-1/2"
         />
         <Image
           src="/images/hero-section/3.png"
           alt=""
           width={80}
           height={80}
-          className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2"
+          className="hidden md:block absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2"
         />
         <Image
           src="/images/hero-section/4.png"
           alt=""
           width={80}
           height={80}
-          className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"
+          className="hidden md:block absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2"
         />
 
         <h1 className="text-4xl font-bold">Airbnb Assistants For</h1>
@@ -58,7 +58,11 @@ export default function Hero() {
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-        <Button href="#contact" className="mt-4">
+        <Button
+          href="#contact"
+          className="mt-4 px-6 rounded-[5px]"
+          style={{ height: "50px", fontSize: "1rem" }}
+        >
           Schedule A Meeting →
         </Button>
         <a href="#pricing" className="font-medium text-sm underline mt-2">
