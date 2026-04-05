@@ -1,6 +1,7 @@
 import Container from "@/components/ui/container";
 import Image from "next/image";
 import Link from "next/link";
+import { Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
 
 const FOOTER_LINKS = {
   company: [
@@ -44,16 +45,16 @@ export default function Footer() {
             </p>
             <div className="flex gap-4 text-muted-foreground">
               <Link href="#" className="hover:text-foreground">
-                𝕏
+                <Twitter className="w-5 h-5" />
               </Link>
               <Link href="#" className="hover:text-foreground">
-                f
+                <Facebook className="w-5 h-5" />
               </Link>
               <Link href="#" className="hover:text-foreground">
-                📷
+                <Instagram className="w-5 h-5" />
               </Link>
               <Link href="#" className="hover:text-foreground">
-                in
+                <Linkedin className="w-5 h-5" />
               </Link>
             </div>
           </div>
