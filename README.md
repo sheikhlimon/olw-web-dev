@@ -1,74 +1,64 @@
-# olw-web-dev
+# OneLittleWeb — Landing Page
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, and more.
+A modern, responsive landing page for OneLittleWeb built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
-## Features
+## Tech Stack
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **Shared UI package** - shadcn/ui primitives live in `packages/ui`
-- **Husky** - Git hooks for code quality
+- **Next.js 16** (App Router, Turbopack)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **shadcn/ui** (shared UI primitives)
+- **Lucide React** (icons)
+- **Bun** (runtime & package manager)
+
+## Sections
+
+| Section | Description |
+|---------|-------------|
+| Hero | Full-screen hero with background grid and radial fade |
+| Navbar | Sticky header with responsive mobile hamburger menu |
+| Tools | Tool/partner logos in responsive grid |
+| Services | Service offerings with icons |
+| Getting Started | 3-step onboarding flow |
+| Why Choose Us | Features with decorative imagery |
+| Pricing | Monthly/yearly toggle with plan cards |
+| Reviews | 3-card testimonial carousel with auto-rotation |
+| FAQ | Expandable accordion with team avatars |
+| Footer | Links, social icons (Lucide), branding |
 
 ## Getting Started
 
-First, install the dependencies:
-
 ```bash
 bun install
-```
-
-Then, run the development server:
-
-```bash
 bun run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
+Open [http://localhost:3001](http://localhost:3001).
 
-## UI Customization
-
-React web apps in this stack share shadcn/ui primitives through `packages/ui`.
-
-- Change design tokens and global styles in `packages/ui/src/styles/globals.css`
-- Update shared primitives in `packages/ui/src/components/*`
-- Adjust shadcn aliases or style config in `packages/ui/components.json` and `apps/web/components.json`
-
-### Add more shared components
-
-Run this from the project root to add more primitives to the shared UI package:
+## Build
 
 ```bash
-npx shadcn@latest add accordion dialog popover sheet table -c packages/ui
+bun run build
 ```
-
-Import shared components like this:
-
-```tsx
-import { Button } from "@olw-web-dev/ui/components/button";
-```
-
-### Add app-specific blocks
-
-If you want to add app-specific blocks instead of shared primitives, run the shadcn CLI from `apps/web`.
-
-## Git Hooks and Formatting
-
-- Initialize hooks: `bun run prepare`
 
 ## Project Structure
 
 ```
-olw-web-dev/
-├── apps/
-│   ├── web/         # Frontend application (Next.js)
-├── packages/
-│   ├── ui/          # Shared shadcn/ui components and styles
+apps/web/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── sections/    # Page sections (hero, navbar, pricing, etc.)
+│   │   └── ui/          # Reusable UI components (Button, Cards, etc.)
+│   └── index.css
+├── public/images/       # Static assets
+packages/
+├── ui/                  # Shared shadcn/ui primitives
 ```
 
-## Available Scripts
+## Credit
 
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run check-types`: Check TypeScript types across all apps
+This project was scaffolded with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack) and developed as a hiring task for OneLittleWeb.
