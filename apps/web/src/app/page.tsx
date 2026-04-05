@@ -8,7 +8,6 @@ import GettingStarted from "@/components/sections/getting-started";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import Reviews from "@/components/sections/reviews";
 import FAQ from "@/components/sections/faq";
-import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
       <WhyChooseUs />
       <Reviews />
       <FAQ />
-      <Contact />
       <Footer />
     </main>
   );
