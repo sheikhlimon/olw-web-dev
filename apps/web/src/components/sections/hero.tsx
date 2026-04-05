@@ -8,14 +8,14 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)`,
-          backgroundSize: "120px 120px",
-          backgroundPosition: "center center",
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
+          backgroundSize: "80px 80px",
+          backgroundPosition: "top left",
         }}
       />
 
       {/* Center fade */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,white_0%,rgba(255,255,255,0.9)_35%,rgba(255,255,255,0)_70%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.5)_35%,rgba(255,255,255,0)_70%)]" />
 
       {/* Top shadow */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#FF8AA8]/10 to-transparent" />

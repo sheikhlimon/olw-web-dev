@@ -11,6 +11,8 @@ const dmSans = DM_Sans({
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
+  fallback: ["sans-serif"],
 });
 
 export const metadata: Metadata = {

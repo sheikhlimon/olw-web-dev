@@ -28,18 +28,32 @@ interface ButtonProps extends VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-export function Button({ children, className, variant, size, href }: ButtonProps) {
+export function Button({ children, className, variant, size, href, style, onClick }: ButtonProps) {
   if (href) {
     return (
-      <Link href={href} className={cn(buttonVariants({ variant, size, className }))}>
+      <Link
+        href={href as any}
+        style={style}
+        className={cn(buttonVariants({ variant, size, className }))}
+      >
         {children}
       </Link>
     );
   }
 
-  return <button className={cn(buttonVariants({ variant, size, className }))}>{children}</button>;
+  return (
+    <button
+      style={style}
+      onClick={onClick}
+      className={cn(buttonVariants({ variant, size, className }))}
+    >
+      {children}
+    </button>
+  );
 }
 
 export { buttonVariants };
