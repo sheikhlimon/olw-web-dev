@@ -12,7 +12,7 @@ export default function TestimonialCard({ name, image, text, highlight }: Testim
   return (
     <div
       className={`rounded-2xl p-6 flex items-start gap-4 transition-all duration-500 ease-out ${
-        highlight ? "bg-white shadow-[0px_4px_77.4px_0px_#88888869]" : "bg-[#f5f5f5]"
+        highlight ? "bg-white shadow-[0px_4px_30px_0px_rgba(136,136,136,0.25)]" : "bg-[#f5f5f5]"
       }`}
     >
       <Image

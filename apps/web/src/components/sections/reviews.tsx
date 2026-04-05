@@ -49,42 +49,47 @@ export default function Reviews() {
   }, [next]);
 
   return (
-    <Container>
-      <div className="text-center max-w-xl mx-auto flex flex-col gap-4 mb-12">
-        <h2 className="text-3xl font-bold">
-          Check Our Clients <span className="text-primary">Review</span>
-        </h2>
-        <p className="text-muted-foreground text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-        </p>
-      </div>
+    <>
+      <Container>
+        <div className="text-center max-w-xl mx-auto flex flex-col gap-4 mb-12">
+          <h2 className="text-3xl font-bold">
+            Check Our Clients <span className="text-primary">Review</span>
+          </h2>
+          <p className="text-muted-foreground text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          </p>
+        </div>
+      </Container>
 
       <div
-        className="flex items-center justify-center gap-6"
+        className="w-full py-4"
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
       >
-        {TESTIMONIALS.map((item, i) => {
-          const isCenter = i === active;
-          const isVisible = Math.abs(i - active) <= 1;
+        <div className="flex items-center justify-center gap-6">
+          {TESTIMONIALS.map((item, i) => {
+            const isCenter = i === active;
+            const isVisible = Math.abs(i - active) <= 1;
 
-          if (!isVisible) return null;
+            if (!isVisible) return null;
 
-          return (
-            <div
-              key={i}
-              className="flex-shrink-0 w-full max-w-[420px] transition-all duration-500 ease-out cursor-pointer"
-              style={{
-                opacity: isCenter ? 1 : 0.6,
-                transform: `scale(${isCenter ? 1 : 0.9})`,
-              }}
-              onClick={() => setActive(i)}
-            >
-              <TestimonialCard {...item} highlight={isCenter} />
-            </div>
-          );
-        })}
+            return (
+              <div
+                key={i}
+                className="flex-shrink-0 w-[400px] transition-all duration-500 ease-out cursor-pointer"
+                style={{
+                  opacity: isCenter ? 1 : 0.6,
+                  transform: `scale(${isCenter ? 1 : 0.9})`,
+                  zIndex: isCenter ? 10 : 1,
+                }}
+                onClick={() => setActive(i)}
+              >
+                <TestimonialCard {...item} highlight={isCenter} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </Container>
+    </>
   );
 }
