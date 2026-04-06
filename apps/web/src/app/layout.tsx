@@ -29,6 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${manrope.variable} font-sans antialiased overflow-x-hidden`}
+        suppressHydrationWarning
       >
         {children}
       </body>

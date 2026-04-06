@@ -22,13 +22,7 @@ export default function Navbar() {
     <header className="h-16 sticky top-0 bg-white z-50">
       <Container className="h-full flex items-center justify-between">
         <Link href="/">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={100}
-            height={32}
-            className="w-auto h-auto"
-          />
+          <Image src="/images/logo.png" alt="Logo" width={100} height={32} className="w-auto h-8" />
         </Link>
 
         <nav className="hidden lg:flex gap-6">
@@ -44,12 +38,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button
-            href="#contact"
-            size="sm"
-            className="px-6 rounded-[5px]"
-            style={{ height: "50px", fontSize: "1rem" }}
-          >
+          <Button href="#contact" className="rounded-[5px]">
             Schedule A Meeting →
           </Button>
         </div>
@@ -87,7 +76,6 @@ export default function Navbar() {
             <Button
               href="#contact"
               onClick={() => setIsOpen(false)}
-              size="sm"
               className="px-6 rounded-[5px]"
               style={{ height: "50px", fontSize: "1rem" }}
             >

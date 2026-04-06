@@ -36,7 +36,7 @@ export default function Footer() {
                 alt="Logo"
                 width={80}
                 height={26}
-                className="w-full h-auto"
+                className="w-auto h-auto"
               />
             </div>
             <p className="text-sm text-muted-foreground">
