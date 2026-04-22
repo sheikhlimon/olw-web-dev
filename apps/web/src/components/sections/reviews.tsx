@@ -36,8 +36,11 @@ export default function Reviews() {
   const [active, setActive] = useState(2);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const paused = useRef(false);
+  const touchStartX = useRef(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const next = useCallback(() => setActive((a) => (a === TESTIMONIALS.length - 1 ? 0 : a + 1)), []);
+  const prev = useCallback(() => setActive((a) => (a === 0 ? TESTIMONIALS.length - 1 : a - 1)), []);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
@@ -48,8 +51,29 @@ export default function Reviews() {
     };
   }, [next]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+  };
+
+  const cardWidth =
+    typeof window !== "undefined" && window.innerWidth < 640
+      ? window.innerWidth - 48
+      : typeof window !== "undefined" && window.innerWidth < 768
+        ? 320
+        : 400;
+  const gap = 24;
+  const offset = active * (cardWidth + gap);
+
   return (
-    <>
+    <section className="pt-5 pb-8 md:pb-10">
       <Container>
         <div className="text-center max-w-xl mx-auto flex flex-col gap-4 mb-12">
           <h2 className="text-3xl font-bold">
@@ -62,25 +86,28 @@ export default function Reviews() {
       </Container>
 
       <div
-        className="w-full py-4 overflow-x-auto scrollbar-hide"
+        className="w-full overflow-hidden py-4"
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <div className="flex items-center justify-center gap-4 md:gap-6">
+        <div
+          ref={trackRef}
+          className="flex gap-6 transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(calc(50% - ${offset}px - ${cardWidth / 2}px))` }}
+        >
           {TESTIMONIALS.map((item, i) => {
             const isCenter = i === active;
-            const isVisible = Math.abs(i - active) <= 1;
-
-            if (!isVisible) return null;
 
             return (
               <div
                 key={i}
-                className="flex-shrink-0 w-[calc(100vw-3rem)] sm:w-80 md:w-[400px] transition-all duration-500 ease-out cursor-pointer"
+                className="flex-shrink-0 w-[calc(100vw-3rem)] sm:w-80 md:w-[400px] cursor-pointer"
                 style={{
                   opacity: isCenter ? 1 : 0.6,
                   transform: `scale(${isCenter ? 1 : 0.9})`,
-                  zIndex: isCenter ? 10 : 1,
+                  transition: "opacity 500ms ease-out, transform 500ms ease-out",
                 }}
                 onClick={() => setActive(i)}
               >
@@ -90,6 +117,6 @@ export default function Reviews() {
           })}
         </div>
       </div>
-    </>
+    </section>
   );
 }
