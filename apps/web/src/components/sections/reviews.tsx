@@ -62,11 +62,11 @@ export default function Reviews() {
       </Container>
 
       <div
-        className="w-full py-4"
+        className="w-full py-4 overflow-x-auto scrollbar-hide"
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
       >
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-4 md:gap-6">
           {TESTIMONIALS.map((item, i) => {
             const isCenter = i === active;
             const isVisible = Math.abs(i - active) <= 1;
@@ -76,7 +76,7 @@ export default function Reviews() {
             return (
               <div
                 key={i}
-                className="flex-shrink-0 w-[400px] transition-all duration-500 ease-out cursor-pointer"
+                className="flex-shrink-0 w-[calc(100vw-3rem)] sm:w-80 md:w-[400px] transition-all duration-500 ease-out cursor-pointer"
                 style={{
                   opacity: isCenter ? 1 : 0.6,
                   transform: `scale(${isCenter ? 1 : 0.9})`,

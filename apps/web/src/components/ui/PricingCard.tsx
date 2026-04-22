@@ -23,7 +23,7 @@ export default function PricingCard({
       </div>
 
       <button
-        className={`py-2 rounded-md text-sm border-[1.5px] border-primary text-primary bg-white cursor-pointer`}
+        className={`w-full py-2.5 rounded-md text-sm font-medium border-[1.5px] border-primary text-primary bg-white group-hover:border-white group-hover:text-primary cursor-pointer`}
       >
         Get Started Now
       </button>

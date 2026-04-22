@@ -56,9 +56,9 @@ export default function WhyChooseUs() {
             </Button>
           </div>
 
-          <div className="relative flex justify-center items-center min-h-[400px] md:min-h-[500px]">
+          <div className="hidden lg:flex relative justify-center items-center min-h-[400px] lg:min-h-[500px]">
             <div className="relative w-fit">
-              <div className="relative z-10 w-[200px] md:w-[320px] -ml-5">
+              <div className="relative z-10 w-[200px] lg:w-[320px] -ml-5">
                 <Image
                   src="/images/choose-us/person.png"
                   alt="Person"
@@ -69,8 +69,8 @@ export default function WhyChooseUs() {
                 />
               </div>
 
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[320px] h-[200px] md:w-[520px] md:h-[320px] rounded-l-full rounded-r-full bg-[#FAC4D2]/60 shadow-[inset_3px_-5px_4px_0px_rgba(0,0,0,0.07)]">
-                <div className="hidden md:block absolute left-0 top-[3%] -translate-x-[5%] -translate-y-1/2 z-20">
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[320px] h-[200px] lg:w-[520px] lg:h-[320px] rounded-l-full rounded-r-full bg-[#FAC4D2]/60 shadow-[inset_3px_-5px_4px_0px_rgba(0,0,0,0.07)]">
+                <div className="hidden lg:block absolute left-0 top-[3%] -translate-x-[5%] -translate-y-1/2 z-20">
                   <Image
                     src="/images/choose-us/hotel.png"
                     alt="Hotel"
@@ -80,7 +80,7 @@ export default function WhyChooseUs() {
                   />
                 </div>
 
-                <div className="hidden md:block absolute left-0 bottom-[15%] -translate-x-[15%] translate-y-1/2 z-20">
+                <div className="hidden lg:block absolute left-0 bottom-[15%] -translate-x-[15%] translate-y-1/2 z-20">
                   <Image
                     src="/images/choose-us/calendar.png"
                     alt="Calendar"
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
                   />
                 </div>
 
-                <div className="hidden md:block absolute right-0 top-[3%] translate-x-[5%] -translate-y-1/2 z-20">
+                <div className="hidden lg:block absolute right-0 top-[3%] translate-x-[5%] -translate-y-1/2 z-20">
                   <Image
                     src="/images/choose-us/compny.png"
                     alt="Company"

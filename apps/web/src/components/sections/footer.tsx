@@ -59,31 +59,33 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex justify-around">
-            <div>
-              <h4 className="font-semibold mb-3">Company</h4>
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                {FOOTER_LINKS.company.map(({ label, href }) => (
-                  <li key={label}>
-                    <Link href={href} className="hover:text-foreground">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+              <div>
+                <h4 className="font-semibold mb-3">Company</h4>
+                <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
+                  {FOOTER_LINKS.company.map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} className="hover:text-foreground">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div>
-              <h4 className="font-semibold mb-3">Help</h4>
-              <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                {FOOTER_LINKS.help.map(({ label, href }) => (
-                  <li key={label}>
-                    <Link href={href} className="hover:text-foreground">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <h4 className="font-semibold mb-3">Help</h4>
+                <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
+                  {FOOTER_LINKS.help.map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} className="hover:text-foreground">
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div>
